@@ -14,6 +14,12 @@ export default function TaskDetail() {
 
   const role = localStorage.getItem("role");
 
+  // Format Date
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "No due date set";
+    return new Date(dateStr).toDateString();
+  };
+
   // Load Task
   const loadTask = async () => {
     try {
@@ -34,13 +40,13 @@ export default function TaskDetail() {
     }
   };
 
-  // Load Employees (Admin only)
+  // Load employees (admin only)
   const loadEmployees = async () => {
     try {
       const res = await api.get("users/employees/");
       setEmployees(res.data);
     } catch (error) {
-      console.error("Error loading employees list", error);
+      console.error("Error loading employees", error);
     }
   };
 
@@ -53,15 +59,13 @@ export default function TaskDetail() {
     }
   }, []);
 
-  // Update Status
+  // Update status
   const updateStatus = async () => {
-    if (!task.status) return;
-
     await api.put(`tasks/${id}/`, { status: task.status });
     navigate("/tasks");
   };
 
-  // Add Comment
+  // Add new comment
   const addComment = async () => {
     if (!text.trim()) return;
 
@@ -70,7 +74,7 @@ export default function TaskDetail() {
     loadComments();
   };
 
-  // Assign Task (Admin)
+  // Assign Task
   const assignTask = async () => {
     if (!task.assignee) {
       alert("Please select an employee!");
@@ -92,9 +96,21 @@ export default function TaskDetail() {
 
       <Link to="/tasks" className="back-btn">← Back to Tasks</Link>
 
-      {/* Task Card */}
       <div className="task-card-detail">
         <h2 className="task-title-detail">{task.title}</h2>
+
+        {/* Priority */}
+        <p className="task-priority">
+          Priority:{" "}
+          <strong style={{ textTransform: "capitalize" }}>
+            {task.priority}
+          </strong>
+        </p>
+
+        {/* Due Date */}
+        <p className="task-due-date">
+          Due Date: <strong>{formatDate(task.due_date)}</strong>
+        </p>
 
         {/* Status Update */}
         {(role === "admin" || role === "employee") && (
@@ -117,7 +133,7 @@ export default function TaskDetail() {
           </div>
         )}
 
-        {/* Assign Task (Admin Only) */}
+        {/* ASSIGN TASK (Admin Only) */}
         {role === "admin" && (
           <div className="assign-box">
             <label>Assign To:</label>
@@ -148,26 +164,28 @@ export default function TaskDetail() {
           </div>
         )}
 
-        {/* Show current assignee */}
-        {/* SHOW ASSIGN INFO BASED ON ROLE */}
-{role === "admin" && task.assignee && (
-  <p className="task-assignee">
-    Assigned To:{" "}
-    <strong>
-      {employees.find((e) => e.id === task.assignee)?.username || "Loading..."}
-    </strong>
-  </p>
-)}
+        {/* Admin: Show assigned-to */}
+        {role === "admin" && task.assignee && (
+          <p className="task-assignee">
+            Assigned To:{" "}
+            <strong>
+              {employees.find((e) => e.id === task.assignee)?.username ||
+                "Loading..."}
+            </strong>
+          </p>
+        )}
 
-{role === "employee" && task.creator && (
-  <p className="task-assignee">
-    Assigned By: <strong>{task.creator.username}</strong>
-  </p>
-)}
+        {/* Employee: Show assigned-by */}
+        {role === "employee" && task.creator && (
+          <p className="task-assignee">
+            Assigned By: <strong>{task.creator.username}</strong>
+          </p>
+        )}
 
-
+        {/* Description Section with Heading */}
+        <h3 className="desc-heading">Description</h3>
         <p className="task-desc">
-          {task.description || "No description provided."}
+          {task.description || "No description added."}
         </p>
       </div>
 
@@ -195,6 +213,7 @@ export default function TaskDetail() {
           Send
         </button>
       </div>
+
     </div>
   );
 }

@@ -5,6 +5,7 @@ import TaskDetail from "./pages/TaskDetail";
 import CreateTask from "./pages/CreateTask";
 import CreateUser from "./pages/CreateUser";
 import EmployeeList from "./pages/EmployeeList";
+import TaskEdit from "./pages/TaskEdit";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/tasks/:id" element={<TaskDetail />} />
         <Route path="/users/create" element={<CreateUser />} />
          <Route path="/employees" element={<EmployeeList />} />
+         <Route path="/tasks/:id/edit" element={<TaskEdit />} />
       </Routes>
     </BrowserRouter>
   );

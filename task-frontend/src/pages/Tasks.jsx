@@ -22,6 +22,15 @@ export default function Tasks() {
     }
   };
 
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "Not set";
+    return new Date(dateStr).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
   useEffect(() => {
     loadTasks();
   }, []);
@@ -31,9 +40,18 @@ export default function Tasks() {
     navigate("/");
   };
 
+  const deleteTask = async (taskId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this task?");
+    if (!confirmDelete) return;
+
+    await api.delete(`tasks/${taskId}/`);
+    alert("Task deleted successfully");
+    loadTasks();
+  };
+
   return (
     <div className="task-page">
-      
+
       {/* TOP BAR */}
       <div className="task-topbar">
         <h2 className="task-title">Tasks</h2>
@@ -46,26 +64,52 @@ export default function Tasks() {
         </div>
       </div>
 
-      {/* Create Task (Admin only) */}
+      {/* Admin Buttons */}
       {role === "admin" && (
-  <div className="task-admin-buttons">
-    <Link to="/tasks/create" className="task-btn">+ Create Task</Link>
-    <Link to="/users/create" className="task-btn user-btn">+ Create User</Link>
-    <Link to="/employees" className="task-btn emp-btn">👥 Employee List</Link>
-  </div>
-)}
+        <div className="task-admin-buttons">
+          <Link to="/tasks/create" className="task-btn">+ Create Task</Link>
+          <Link to="/users/create" className="task-btn user-btn">+ Create User</Link>
+          <Link to="/employees" className="task-btn emp-btn">👥 Employee List</Link>
+        </div>
+      )}
 
-      {/* IF NO TASKS */}
+      {/* No Tasks */}
       {tasks.length === 0 ? (
         <p className="no-tasks-msg">No tasks found 🙂</p>
       ) : (
         <ul className="task-list">
           {tasks.map((task) => (
             <li key={task.id} className="task-card">
+
               <Link to={`/tasks/${task.id}`} className="task-link">
-                <span className="task-name">{task.title}</span>
+                <div className="task-left">
+                  <span className="task-name">{task.title}</span>
+
+                  <div className="task-dates">
+                    <small>📅 Created: {formatDate(task.created_at)}</small>
+                    <small>⏳ Due: {formatDate(task.due_date)}</small>
+                  </div>
+                </div>
+
                 <span className="task-status">{task.status}</span>
               </Link>
+
+              {/* Admin: Edit & Delete */}
+              {role === "admin" && (
+                <div className="task-actions">
+                  <Link to={`/tasks/${task.id}/edit`} className="edit-btn">
+                    ✏️ Edit
+                  </Link>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => deleteTask(task.id)}
+                  >
+                    🗑 Delete
+                  </button>
+                </div>
+              )}
+
             </li>
           ))}
         </ul>

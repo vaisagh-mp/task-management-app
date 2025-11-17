@@ -1,0 +1,96 @@
+.edit-task-container {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f5f7fa;
+  padding-top: 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.edit-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.edit-back-btn:hover {
+  text-decoration: underline;
+}
+
+.edit-task-card {
+  width: 420px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
+}
+
+.edit-task-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+}
+
+.edit-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #444;
+  display: block;
+}
+
+.edit-input,
+.edit-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d7dce1;
+  margin-bottom: 12px;
+  font-size: 15px;
+  background: #fafbfc;
+  transition: 0.2s;
+}
+
+.edit-input:focus,
+.edit-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 4px rgba(0,123,255,0.4);
+  outline: none;
+}
+
+.edit-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.edit-save-btn {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.edit-save-btn:hover {
+  background: #218838;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 50px;
+  color: #555;
+}

@@ -1,4 +1,7 @@
 /* Page container */
+*{
+  box-sizing: border-box;
+}
 .create-task-container {
   min-height: 100vh;
   background: #f5f7fa;
@@ -13,6 +16,7 @@
 /* Back button */
 .back-btn {
   position: absolute;
+  margin-top: 45px;
   left: 40px;
   top: 40px;
   font-size: 16px;
@@ -105,6 +109,109 @@
 .create-btn:hover {
   background: #005fcc;
 }
+
+
+.create-task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eef2f7;
+  font-family: "Inter", sans-serif;
+}
+
+.create-task-card {
+  width: 380px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.create-task-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.task-input,
+.task-textarea,
+.task-select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #d7dce1;
+  background: #fafbfc;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.task-textarea {
+  height: 90px;
+  resize: none;
+}
+
+.task-input:focus,
+.task-textarea:focus,
+.task-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+/* Labels */
+.task-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Create Button */
+.create-btn {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.create-btn:hover {
+  background: #005fcc;
+}
+
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background: none;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* Animation */
 @keyframes fadeIn {

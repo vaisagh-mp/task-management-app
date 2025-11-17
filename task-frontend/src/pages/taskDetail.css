@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 /* -----------------------------
    GLOBAL PAGE CONTAINER
 ----------------------------- */
