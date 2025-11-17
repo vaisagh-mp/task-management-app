@@ -1,0 +1,151 @@
+/* Main wrapper */
+.task-page {
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Page title */
+.task-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* TOP BAR */
+.task-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Right section (username + logout) */
+.task-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.task-user {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Logout button */
+.task-logout-btn {
+  padding: 8px 14px;
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.task-logout-btn:hover {
+  background: #d93636;
+}
+
+/* ---------------------------
+   Admin Buttons (Create Task, User, Employee List)
+----------------------------- */
+.task-admin-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;     /* ✓ Proper spacing */
+  margin-bottom: 25px;
+}
+
+/* Base button style */
+.task-btn {
+  padding: 12px 20px;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+/* Create Task button */
+.task-btn {
+  background: #007bff;
+}
+
+.task-btn:hover {
+  background: #005fcc;
+}
+
+/* Create User button */
+.user-btn {
+  background: #28a745 !important;
+}
+
+.user-btn:hover {
+  background: #1e8a39 !important;
+}
+
+/* Employee List button */
+.emp-btn {
+  background: #ff6811 !important;
+}
+
+.emp-btn:hover {
+  background: #f59259 !important;
+}
+
+/* Task list */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Task card */
+.task-card {
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.07);
+  transition: 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Task link */
+.task-link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.task-name {
+  font-weight: 600;
+}
+
+.task-status {
+  font-size: 14px;
+  padding: 4px 10px;
+  background: #eef2f7;
+  border-radius: 6px;
+  color: #555;
+}
+
+.no-tasks-msg {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 40px;
+  opacity: 0.8;
+}

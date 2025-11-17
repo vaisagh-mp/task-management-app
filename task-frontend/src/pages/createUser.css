@@ -1,0 +1,77 @@
+/* Full page center */
+.create-user-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef2f7;
+  position: relative;
+}
+
+/* Back Button */
+.cu-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #007bff;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.cu-back-btn:hover {
+  color: #005fcc;
+}
+
+/* User create box */
+.create-user-box {
+  width: 380px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.create-user-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #222;
+}
+
+/* Inputs */
+.cu-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #d7dce1;
+  background: #fafbfc;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.cu-input:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 4px rgba(0,123,255,0.4);
+  outline: none;
+}
+
+/* Button */
+.cu-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cu-btn:hover {
+  background: #005fcc;
+}

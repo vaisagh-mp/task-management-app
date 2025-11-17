@@ -1,0 +1,93 @@
+.emp-container {
+  min-height: 100vh;
+  margin-top: 75px;
+  background: #eef2f7;
+  padding: 40px 20px;
+  position: relative;
+  font-family: "Inter", sans-serif;
+}
+
+/* Back button */
+.emp-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.emp-back-btn:hover {
+  color: #005fcc;
+}
+
+/* Title */
+.emp-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Employee List */
+.emp-list {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* Employee item */
+.emp-card {
+  background: #fff;
+  padding: 18px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.emp-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Name & email */
+.emp-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.emp-email {
+  color: #555;
+  font-size: 14px;
+}
+
+.emp-empty {
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+  font-size: 18px;
+}
+
+
+/* Back Button */
+.emp-back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.emp-back-btn:hover {
+  background: #5f9be0;
+  transform: translateX(-3px);
+}
